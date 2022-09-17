@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Amazon 2.0</title>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="firebase.js"></script>
+
+    <script src="header.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+
+    <!-- jdenticon -->
+    <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.2.0/dist/jdenticon.min.js" async
+        integrity="sha384-yBhgDqxM50qJV5JPdayci8wCfooqvhFYbIKhv0hTtLvfeeyJMJCscRfFNKIxt43M" crossorigin="anonymous">
+        </script>
+
+    <script src="cart.js"></script>
+
+</head>
+
+<body>
+    <div class="h-auto w-full">
+        <!-- navBar -->
+        <div class="header  sticky top-0 h-16 bg-gray-900 flex items-center">
+            <div class="logo ml-10 w-1/5 h-16 pt-3
+         object-contain">
+                <a href="index.html">
+                    <img class="w-25 h-10"
+                        src="https://www.pinclipart.com/picdir/big/57-576184_view-our-amazon-storefront-amazon-logo-white-png.png"
+                        alt="logo">
+                </a>
+            </div>
+            <input type="text" class="h-9 w-30 px-3 
+         bg-gray-800 border border-gray-500 border-opacity-75 
+         rounded-l-xl text-white ml-6 focus:outline-none placeholder-white" id="search" placeholder="Search...">
+            <div class="categories h-9 w-30 bg-gray-800
+         border border-gray-500 border-opacity-75 
+          flex items-center px-3 text-white">
+                categories
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4 ml-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+
+            </div>
+            <div class="search-icon bg-yellow-500 h-9 
+         w-10 rounded-r-xl flex justify-center text-white items-center ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+            </div>
+            <!--  Right icons -->
+            <div class="icons text-white flex items-center ml-auto mr-8 w-48 h-16 justify-around">
+                <svg class="h4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                    stroke="currentColor" className="w-6 h-6 ">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                </svg>
+                <!-- cart-icon -->
+                <a href="cart.html">
+                    <div class="cart-icon relative h-10 w-10 bg-yellow-500 
+               flex items-center justify-center rounded-xl">
+
+                        <div class="cart-item-number absolute w-4 h-4
+               rounded-full flex justify-center items-center
+               -top-1 -right-1 bg-white text-xs text-gray-800"></div>
+                        <svg class="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                        </svg>
+
+                    </div>
+                </a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                </svg>
+                <svg data-jdenticon-value="Jessy" class=" rounded h-12 w-12"></svg>
+            </div>
+        </div>
+        <!-- main section -->
+        <div class="main h-auto flex ">
+            
+              <!-- sidebar -->
+          <div id="sideBar" class="sideBar 
+            border-t-2 text-white  border-gray-700 bg-gray-900 ">
+                <div id="menutoggle" class="menutoggle">
+                   
+                <span id="menu" class="menu icon">
+                    <ion-icon name="menu-outline"></ion-icon>  </span>
+                   <span id="cross" class="cross icon"> <ion-icon name="close-outline"></ion-icon>      </span>
+             
+               </div>
+             
+                   <ul id="sidenav-list">
+                       <li class="list"  > <a class="text-white" href="index.html"><span class="home-icon list-icon"><ion-icon name="home-outline"></ion-icon></span> <span id="list-text" href="#">Home</span> </a>  </li>
+                       <li class="list"  > <a class="text-white" href="#"><span class="about-icon list-icon"><ion-icon name="trending-up-outline"></ion-icon></span> <span id="list-text" href="#">Trending</span> </a> </li>
+                       <li class="list"  > <a class="text-white" href="#"><span class="chat-icon list-icon"><ion-icon name="laptop-outline"></ion-icon></span> <span id="list-text" href="#">Devices</span></a>   </li>
+                       <li class="list"  > <a class="text-white" href="#"><span class="photos-icon list-icon"><ion-icon name="gift-outline"></ion-icon></span> <span id="list-text" href="#">Gift card & Recharge</span> </a>  </li>
+                       <li class="list"  > <a class="text-white" href="#"><span class="setting-icon list-icon"><ion-icon name="settings-outline"></ion-icon></span> <span id="list-text" href="#">Setting</span> </a>  </li>
+                   </ul>
+              
+            </div>  
+             <!-- main-section -->
+            <div class="main-section  flex-1 p-6 bg-gray-100 ml-16">
+                <h1 class="text-gray-400 text-3xl font-bold 
+                  mb-6 ">Shopping Cart</h1>
+                <div class="table-titles flex font-bold text-gray-400  ">
+                    <h2 class="flex-grow">Product</h2>
+                    <h2 class="w-48">Count</h2>
+                    <h2 class="w-48">Total Cost</h2>
+                    <span class="w-10"></span>
+                </div>
+                <div class="cart-items mt-5">
+                    <!-- cart-items form db through cart.js -->
+                </div>
+                <div class="complete-order flex justify-end
+                  mt-10">
+                    <div class="total-cost mr-7">
+                        <h2 class="text-gray-400">Total Cost</h2>
+                        <div class="total-cost-number
+                           text-3xl font-bold text-gray-600">
+                        </div>
+                    </div>
+                    <div class="complete-order-button w-56 flex items-center 
+                      justify-center bg-yellow-500 rounded text-white  cursor-pointer
+                      hover:bg-yellow-600">
+                        Complete Order
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+   <script >
+       let menutoggle = document.getElementById('menutoggle');
+let sideBar = document.getElementById('sideBar');
+let menu =   document.getElementById('menu');
+let cross = document.getElementById('cross');
+let list = document.querySelectorAll('.list');
+
+function openfunct(){
+  list.forEach((item)=>{
+    item.classList.remove('open');
+    this.classList.add('open')
+  })
+}
+list.forEach((item)=>{
+  item.addEventListener('click',openfunct);
+})
+
+
+//sidebar event===============
+menutoggle.addEventListener('click',()=>{
+  sideBar.classList.toggle('active');
+menu.classList.toggle('hide');
+cross.classList.toggle('show');
+
+})
+   </script>
+
+
+</html>

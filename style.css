@@ -1,0 +1,134 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sideBar{
+    background-color: #fff;
+    position: fixed;
+    width: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    transition: 0.5s;
+}
+.menutoggle{
+    position: absolute;
+    border-bottom: 1px solid #8181819d;
+    height: 3rem;
+    width: 100%;
+    top:0;
+    display: flex;
+    justify-content: center;
+}
+
+.menutoggle .icon{
+    font-size: 2.5rem;
+    position: relative;
+    cursor: pointer;
+
+}
+.menutoggle .cross{
+    display: none;
+}
+
+.active{
+    width: 20%;
+}
+
+.show{
+    display: block !important;
+}
+.hide{
+    display: none;
+
+}
+
+#sidenav-list{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+   
+}
+#sidenav-list li{
+    list-style:none;
+}
+
+#sidenav-list li .list-icon ion-icon{
+   
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
+#sidenav-list li.open ion-icon{
+   
+    color: white;
+    transition: 0.5s;
+    
+}
+
+#sidenav-list li .list-icon{
+    transition: 0.5s;
+
+    padding: 1rem;
+    position: relative;
+    
+}
+#sidenav-list li a{
+    display: flex;
+    transition: 0.5s;
+    align-items: center;
+   
+}
+#sidenav-list li  #list-text{
+    font-size: 1.3rem;
+    display: none;
+    transition: 0.5s;
+}
+
+
+.sideBar.active #list-text{
+    display: block !important;
+}
+
+.sideBar.active #sidenav-list {
+    padding: 1rem;
+}
+#sidenav-list li.open  #list-text{
+    color:var(--clr);
+}
+
+@media only screen and (max-width:1096px){
+    .active{
+        width: 30%;
+    }
+
+}
+@media only screen and (max-width:900px){
+    .active{
+        width: 40%;
+    }
+
+}
+@media only screen and (max-width:515px){
+    .active{
+        width: 50%;
+    }
+
+}
+
+@media only screen and (max-width:426px){
+    .active{
+        width: 90%;
+    }
+
+}
+ .main-section-banner {
+     background-image: url("https://i.ibb.co/JnmTD12/banner.jpg");
+     background-position: center;
+     background-size: cover;
+ }
